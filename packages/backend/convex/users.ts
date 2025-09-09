@@ -12,9 +12,16 @@ export const add = mutation({
     args: {},
     handler: async (ctx) => {
         const identity = await ctx.auth.getUserIdentity();
-        if(!identity) {
+        if (!identity) {
             throw new Error("Unauthorized");
         }
+
+        const orgId = identity.orgId as string;
+
+        if (!orgId) {
+            throw new Error("Organization not found");
+        }
+
 
         const userId = await ctx.db.insert("users", {
             name: "Dubey"
