@@ -6,9 +6,13 @@
     "setup": "convex dev --until-success"
   },
   "exports": {
-    "./convex": ["./convex/*.ts", "./convex/*.js"]
+    "./convex": [
+      "./convex/*.ts",
+      "./convex/*.js"
+    ]
   },
   "devDependencies": {
+    "@types/node": "^20.19.9",
     "@workspace/typescript-config": "workspace:*",
     "typescript": "latest"
   },
